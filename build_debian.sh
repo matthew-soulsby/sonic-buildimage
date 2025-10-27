@@ -572,8 +572,6 @@ if [ -f files/image_config/ntp/ntp-systemd-wrapper ]; then
     sudo cp ./files/image_config/ntp/ntp-systemd-wrapper $FILESYSTEM_ROOT/usr/libexec/ntpsec/
 fi
 
-sudo cp files/image_config/gnoi/debug/command_whitelist.yaml $FILESYSTEM_ROOT/etc/sonic/command_whitelist.yaml
-
 ## Version file part 1
 sudo mkdir -p $FILESYSTEM_ROOT/etc/sonic
 if [ -f files/image_config/sonic_release ]; then
@@ -599,6 +597,9 @@ if [[ ! -f './asic_config_checksum' ]]; then
     exit 1
 fi
 sudo cp ./asic_config_checksum $FILESYSTEM_ROOT/etc/sonic/asic_config_checksum
+
+## Copy gNOI Debug RPC command whitelist
+sudo cp files/image_config/gnoi/debug/command_whitelist.yaml $FILESYSTEM_ROOT/etc/sonic/command_whitelist.yaml
 
 ## Check if not a last stage of RFS build
 fi
