@@ -572,6 +572,8 @@ if [ -f files/image_config/ntp/ntp-systemd-wrapper ]; then
     sudo cp ./files/image_config/ntp/ntp-systemd-wrapper $FILESYSTEM_ROOT/usr/libexec/ntpsec/
 fi
 
+sudo cp files/image_config/gnoi/debug/command_whitelist.yaml $FILESYSTEM_ROOT/etc/sonic/command_whitelist.yaml
+
 ## Version file part 1
 sudo mkdir -p $FILESYSTEM_ROOT/etc/sonic
 if [ -f files/image_config/sonic_release ]; then
